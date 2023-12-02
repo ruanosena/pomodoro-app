@@ -6,7 +6,8 @@
 		"paths": {
 			"@comp/*": ["./fonte/componentes/*"],
 			"@tela/*": ["./fonte/telas/*"],
-			"@esp/*": ["./fonte/espolios/*"]
+			"@esp/*": ["./fonte/espolios/*"],
+			"@ctx/*": ["./fonte/contextos/*"]
 		}
 	}
 }

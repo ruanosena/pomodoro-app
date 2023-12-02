@@ -11,6 +11,7 @@ module.exports = function (api) {
 						"@comp": "./fonte/componentes",
 						"@tela": "./fonte/telas",
 						"@asset": "./fonte/assets",
+						"@ctx": "./fonte/contextos",
 					},
 				},
 			],
