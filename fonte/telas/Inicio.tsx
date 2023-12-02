@@ -1,14 +1,11 @@
-import { useContext } from "react";
-import { AppContexto } from "@ctx/AppContexto";
 import { Button, Center, HStack, Icon, Text } from "native-base";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Chip from "@comp/Chip";
 import TempoContador from "@comp/TempoContador";
-
-export const MODOS = ["foco", "pausa-rapida", "pausa-longa"] as const;
+import useApp from "@hooks/useApp";
 
 export default function Inicio() {
-	const { modo } = useContext(AppContexto);
+	const { modo, definirModo, tempo, definirPausa, pausado } = useApp();
 
 	if (modo == "foco") {
 		return (
@@ -20,16 +17,22 @@ export default function Inicio() {
 					</Text>
 				</Chip>
 
-				<TempoContador tempo={302} color="red.900" my={7} />
+				<TempoContador tempo={tempo} color="red.900" my={7} fontFamily={pausado ? "body" : "heading"} />
 
 				<HStack alignItems="center" justifyContent="space-evenly" w="full">
 					<Button size={16} bg="red.100" rounded="3xl" _pressed={{ bg: "red.200" }}>
 						<Icon as={MaterialCommunityIcons} name="tools" color="red.900" size={7} />
 					</Button>
-					<Button size={24} bg="red.300" rounded="3xl" _pressed={{ bg: "red.400" }}>
+					<Button
+						size={24}
+						bg="red.300"
+						rounded="3xl"
+						_pressed={{ bg: "red.400" }}
+						onPress={() => definirPausa(!pausado)}
+					>
 						<Icon as={MaterialCommunityIcons} name="play-pause" color="red.900" size={10} />
 					</Button>
-					<Button size={20} bg="red.100" rounded="3xl" _pressed={{ bg: "red.200" }}>
+					<Button size={20} bg="red.100" rounded="3xl" _pressed={{ bg: "red.200" }} onPress={definirModo}>
 						<Icon as={MaterialCommunityIcons} name="fast-forward" color="red.900" size={7} />
 					</Button>
 				</HStack>
@@ -45,16 +48,22 @@ export default function Inicio() {
 					</Text>
 				</Chip>
 
-				<TempoContador tempo={302} color="green.900" my={7} />
+				<TempoContador tempo={tempo} color="green.900" my={7} fontFamily={pausado ? "body" : "heading"} />
 
 				<HStack alignItems="center" justifyContent="space-evenly" w="full">
 					<Button size={16} bg="green.100" rounded="3xl" _pressed={{ bg: "green.200" }}>
 						<Icon as={MaterialCommunityIcons} name="tools" color="green.900" size={7} />
 					</Button>
-					<Button size={24} bg="green.300" rounded="3xl" _pressed={{ bg: "green.400" }}>
+					<Button
+						size={24}
+						bg="green.300"
+						rounded="3xl"
+						_pressed={{ bg: "green.400" }}
+						onPress={() => definirPausa(!pausado)}
+					>
 						<Icon as={MaterialCommunityIcons} name="play-pause" color="green.900" size={10} />
 					</Button>
-					<Button size={20} bg="green.100" rounded="3xl" _pressed={{ bg: "green.200" }}>
+					<Button size={20} bg="green.100" rounded="3xl" _pressed={{ bg: "green.200" }} onPress={definirModo}>
 						<Icon as={MaterialCommunityIcons} name="fast-forward" color="green.900" size={7} />
 					</Button>
 				</HStack>
@@ -70,16 +79,22 @@ export default function Inicio() {
 					</Text>
 				</Chip>
 
-				<TempoContador tempo={302} color="blue.900" my={7} />
+				<TempoContador tempo={tempo} color="blue.900" my={7} fontFamily={pausado ? "body" : "heading"} />
 
 				<HStack alignItems="center" justifyContent="space-evenly" w="full">
 					<Button size={16} bg="blue.100" rounded="3xl" _pressed={{ bg: "blue.200" }}>
 						<Icon as={MaterialCommunityIcons} name="tools" color="blue.900" size={7} />
 					</Button>
-					<Button size={24} bg="blue.300" rounded="3xl" _pressed={{ bg: "blue.400" }}>
+					<Button
+						size={24}
+						bg="blue.300"
+						rounded="3xl"
+						_pressed={{ bg: "blue.400" }}
+						onPress={() => definirPausa(!pausado)}
+					>
 						<Icon as={MaterialCommunityIcons} name="play-pause" color="blue.900" size={10} />
 					</Button>
-					<Button size={20} bg="blue.100" rounded="3xl" _pressed={{ bg: "blue.200" }}>
+					<Button size={20} bg="blue.100" rounded="3xl" _pressed={{ bg: "blue.200" }} onPress={definirModo}>
 						<Icon as={MaterialCommunityIcons} name="fast-forward" color="blue.900" size={7} />
 					</Button>
 				</HStack>
