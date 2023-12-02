@@ -95,7 +95,7 @@ export default function Inicio() {
 				</HStack>
 			</Center>
 		);
-	} else {
+	} else if (modo == "pausa-longa") {
 		return (
 			<Center flex={1} bg="blue.50" px={10}>
 				<Chip borderColor="blue.900" bg="blue.100">

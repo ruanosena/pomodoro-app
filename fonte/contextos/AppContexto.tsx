@@ -19,7 +19,7 @@ type AppContextoProviderProps = {
 export const AppContexto = createContext<AppContextoProps>({} as AppContextoProps);
 
 export default function AppContextoProvider({ children }: AppContextoProviderProps) {
-	const [modo, defModo] = useState<(typeof MODOS)[number]>("foco");
+	const [modo, defModo] = useState<(typeof MODOS)[number]>("" as (typeof MODOS)[number]);
 	const [contador, defContador] = useState<number>(0);
 	const [tempo, defTempo] = useState<number>(0);
 	const [pausado, defPausado] = useState<boolean>(true);
