@@ -9,7 +9,7 @@ export default function TempoContador({ tempo, ...rest }: Props) {
 	const segundos = String(tempo % 60).padStart(2, "0");
 
 	return (
-		<Text fontFamily="heading" fontSize="9xl" lineHeight="2xs" {...rest}>
+		<Text fontFamily="heading" fontSize="9xl" lineHeight="2xs" numberOfLines={2} {...rest}>
 			{minutos}
 			{"\n"}
 			{segundos}

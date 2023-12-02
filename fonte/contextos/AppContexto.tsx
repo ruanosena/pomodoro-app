@@ -8,6 +8,8 @@ type AppContextoProps = {
 	tempo: number;
 	definirPausa: (pausa: boolean) => void;
 	pausado: boolean;
+	definirAuto: (auto: boolean) => void;
+	auto: boolean;
 };
 
 type AppContextoProviderProps = {
@@ -47,7 +49,7 @@ export default function AppContextoProvider({ children }: AppContextoProviderPro
 			defTempo(60 * 25);
 		}
 		if (!auto) defPausado(true);
-	}, [modo, auto]);
+	}, [modo]);
 
 	function definirModo() {
 		if (modo == "foco") {
@@ -62,7 +64,9 @@ export default function AppContextoProvider({ children }: AppContextoProviderPro
 	}
 
 	return (
-		<AppContexto.Provider value={{ modo, definirModo, tempo, definirPausa: defPausado, pausado }}>
+		<AppContexto.Provider
+			value={{ modo, definirModo, tempo, definirPausa: defPausado, pausado, definirAuto: defAuto, auto }}
+		>
 			{children}
 		</AppContexto.Provider>
 	);

@@ -5,7 +5,7 @@ import TempoContador from "@comp/TempoContador";
 import useApp from "@hooks/useApp";
 
 export default function Inicio() {
-	const { modo, definirModo, tempo, definirPausa, pausado } = useApp();
+	const { modo, definirModo, tempo, definirPausa, pausado, definirAuto, auto } = useApp();
 
 	if (modo == "foco") {
 		return (
@@ -20,8 +20,21 @@ export default function Inicio() {
 				<TempoContador tempo={tempo} color="red.900" my={7} fontFamily={pausado ? "body" : "heading"} />
 
 				<HStack alignItems="center" justifyContent="space-evenly" w="full">
-					<Button size={16} bg="red.100" rounded="3xl" _pressed={{ bg: "red.200" }}>
-						<Icon as={MaterialCommunityIcons} name="tools" color="red.900" size={7} />
+					<Button
+						_text={{ color: "red.700", fontFamily: "heading" }}
+						size={16}
+						bg="red.100"
+						rounded="3xl"
+						_pressed={{ bg: "red.200" }}
+						onPress={() => definirAuto(!auto)}
+					>
+						<Icon
+							as={MaterialCommunityIcons}
+							name={auto ? "radiobox-marked" : "radiobox-blank"}
+							color="red.900"
+							size={7}
+						/>
+						Auto
 					</Button>
 					<Button
 						size={24}
@@ -51,8 +64,21 @@ export default function Inicio() {
 				<TempoContador tempo={tempo} color="green.900" my={7} fontFamily={pausado ? "body" : "heading"} />
 
 				<HStack alignItems="center" justifyContent="space-evenly" w="full">
-					<Button size={16} bg="green.100" rounded="3xl" _pressed={{ bg: "green.200" }}>
-						<Icon as={MaterialCommunityIcons} name="tools" color="green.900" size={7} />
+					<Button
+						_text={{ color: "green.700", fontFamily: "heading" }}
+						size={16}
+						bg="green.100"
+						rounded="3xl"
+						_pressed={{ bg: "green.200" }}
+						onPress={() => definirAuto(!auto)}
+					>
+						<Icon
+							as={MaterialCommunityIcons}
+							name={auto ? "radiobox-marked" : "radiobox-blank"}
+							color="green.900"
+							size={7}
+						/>
+						Auto
 					</Button>
 					<Button
 						size={24}
@@ -82,8 +108,21 @@ export default function Inicio() {
 				<TempoContador tempo={tempo} color="blue.900" my={7} fontFamily={pausado ? "body" : "heading"} />
 
 				<HStack alignItems="center" justifyContent="space-evenly" w="full">
-					<Button size={16} bg="blue.100" rounded="3xl" _pressed={{ bg: "blue.200" }}>
-						<Icon as={MaterialCommunityIcons} name="tools" color="blue.900" size={7} />
+					<Button
+						_text={{ color: "blue.700", fontFamily: "heading" }}
+						size={16}
+						bg="blue.100"
+						rounded="3xl"
+						_pressed={{ bg: "blue.200" }}
+						onPress={() => definirAuto(!auto)}
+					>
+						<Icon
+							as={MaterialCommunityIcons}
+							name={auto ? "radiobox-marked" : "radiobox-blank"}
+							color="blue.900"
+							size={7}
+						/>
+						Auto
 					</Button>
 					<Button
 						size={24}
